@@ -177,6 +177,9 @@ td:nth-child(2){white-space:nowrap}
 .step-head em{border-color:var(--sun);color:var(--sun)}
 .faq dt::before{color:var(--sun)}
 .chip span{color:var(--sun)}
+.key{border-block:2px solid var(--sun);padding:26px 8px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.key-label,.key-note{font-size:15px;color:var(--muted)}
+.key-text{font-weight:700;font-size:clamp(22px,4.4vw,32px);line-height:1.5;color:var(--sun);letter-spacing:.06em;text-wrap:balance;margin:0}
 </style>
 </head>
 <body>
@@ -201,7 +204,12 @@ td:nth-child(2){white-space:nowrap}
 
   <section>
     <h2>届けたい家族 <small>外で過ごすのが好きな家族</small></h2>
-    <p class="lead">全員に売ろうとするより、「外で過ごすのが好きな家族」にしっかり届けます。ベビーカーとしてではなく、「赤ちゃんと一緒に、家族みんなで外を楽しむための道具」として見てもらえると、5万円の価値が伝わりやすくなります。</p>
+    <p class="lead">全員に売ろうとするより、「外で過ごすのが好きな家族」にしっかり届けます。</p>
+    <div class="key">
+      <span class="key-label">ベビーカーとしてではなく</span>
+      <p class="key-text">赤ちゃんと一緒に、<br>家族みんなで外を楽しむためのアイテム</p>
+      <span class="key-note">として見てもらえると、5万円の価値が伝わりやすくなります。</span>
+    </div>
     <dl class="faq plain">
       <div><dt>こんな家族に</dt><dd>子どもが生まれる前から、キャンプやピクニックが好きだった／週末は公園や芝生の広場で過ごすことが多い／アウトドア道具にこだわりがある</dd></div>
       <div><dt>無理にすすめない家族</dt><dd>毎日のお散歩や電車移動が中心なら、ブリーズやタタミーのほうが合います</dd></div>
