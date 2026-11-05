@@ -8,40 +8,40 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Quicksand:wght@500;600;700&display=swap">
 <style>
 /* Layout: 1カラムのEC接客ガイド。軸 → 3つのストーリー → 商品ページの流れ → 価格 → 流入別の言い換え → 先回りFAQ → 問い合わせ返信 */
 :root{
-  --bg:#f6f8f3;
+  --bg:#faf8f5;
   --surface:#ffffff;
-  --ink:#1f2a22;
-  --muted:#5d6b60;
-  --line:#dde4d9;
-  --pine:#2f5d46;
-  --pine-soft:#e3ede6;
+  --ink:#3a3632;
+  --muted:#8a8178;
+  --line:#e8e2da;
+  --pine:#8c7563;
+  --pine-soft:#f1ebe4;
   --on-pine:#ffffff;
-  --sun:#f2b632;
-  --sun-soft:#fdf1d2;
+  --sun:#d9864a;
+  --sun-soft:#f7ece2;
   --font-display:"Noto Sans JP","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
   --font-body:"Noto Sans JP","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
-  --font-num:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --font-num:"Quicksand","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#141a16; --surface:#1c241f; --ink:#e8eee9; --muted:#a3b2a7; --line:#2e3a32;
-    --pine:#7cc49c; --pine-soft:#22352a; --on-pine:#10170f; --sun:#f5c454; --sun-soft:#3a3120; color-scheme:dark;
+    --bg:#1a1816; --surface:#24211e; --ink:#eee8e2; --muted:#ab9f93; --line:#38332e;
+    --pine:#cdb7a3; --pine-soft:#2e2924; --on-pine:#1a1816; --sun:#e8a070; --sun-soft:#3a2c22; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#141a16; --surface:#1c241f; --ink:#e8eee9; --muted:#a3b2a7; --line:#2e3a32;
-  --pine:#7cc49c; --pine-soft:#22352a; --on-pine:#10170f; --sun:#f5c454; --sun-soft:#3a3120; color-scheme:dark;
+  --bg:#1a1816; --surface:#24211e; --ink:#eee8e2; --muted:#ab9f93; --line:#38332e;
+  --pine:#cdb7a3; --pine-soft:#2e2924; --on-pine:#1a1816; --sun:#e8a070; --sun-soft:#3a2c22; color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.8;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
 .wrap{max-width:880px;margin:0 auto;padding-block:40px 64px;display:flex;flex-direction:column;gap:56px}
 h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.4}
-h2{font-size:22px;font-weight:900;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+h2{font-size:22px;font-weight:500;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
 h2 small{font-family:var(--font-body);font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
 p{margin:0}
 .lead{color:var(--muted);max-width:62ch}
@@ -53,11 +53,11 @@ header{display:flex;flex-direction:column;gap:14px}
 .chip{display:inline-flex;align-items:baseline;gap:6px;background:var(--sun-soft);border-radius:999px;padding:4px 14px;color:var(--ink);font-size:13px;letter-spacing:0}
 .chip span{font-family:var(--font-num);font-weight:700;font-size:18px}
 .chip.ec{background:var(--pine-soft);color:var(--pine);font-weight:700}
-h1{font-size:clamp(26px,5vw,36px);font-weight:900}
+h1{font-size:clamp(26px,5vw,36px);font-weight:500}
 
 .axis{background:var(--pine);color:var(--on-pine);border-radius:20px;padding:36px clamp(20px,5vw,44px);display:flex;flex-direction:column;gap:14px}
 .axis .label{font-size:12px;letter-spacing:.14em;opacity:.85}
-.axis blockquote{margin:0;font-family:var(--font-display);font-weight:900;font-size:clamp(24px,4.6vw,34px);line-height:1.45;text-wrap:balance}
+.axis blockquote{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(24px,4.6vw,34px);line-height:1.45;text-wrap:balance}
 .axis p{opacity:.92;max-width:58ch}
 
 .stories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -65,7 +65,7 @@ h1{font-size:clamp(26px,5vw,36px);font-weight:900}
 .story{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .story.main{border:2px solid var(--pine)}
 .story .badge{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;background:var(--pine);color:var(--on-pine);border-radius:999px;padding:2px 10px}
-.story h3{font-size:18px;font-weight:900;color:var(--pine)}
+.story h3{font-size:18px;font-weight:500;color:var(--pine)}
 .story .value{font-size:14px}
 .story .mat{border-top:1px dashed var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
 .story .mat strong{font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:500}
@@ -83,7 +83,7 @@ h1{font-size:clamp(26px,5vw,36px);font-weight:900}
 .step-head h3{font-size:16px;font-weight:700}
 .step-head em{font-style:normal;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 8px}
 .copy{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:14.5px;display:flex;flex-direction:column;gap:8px}
-.copy .big{font-family:var(--font-display);font-weight:900;font-size:18px;line-height:1.5}
+.copy .big{font-family:var(--font-display);font-weight:500;font-size:18px;line-height:1.5}
 .show{display:flex;gap:8px;font-size:13px;color:var(--muted)}
 .show b{flex:none;font-weight:700;color:var(--pine);font-size:11px;letter-spacing:.06em;background:var(--pine-soft);border-radius:6px;padding:1px 8px;height:fit-content;margin-top:3px}
 
@@ -129,6 +129,16 @@ td:first-child{font-weight:700;white-space:nowrap;color:var(--pine)}
 .shots figcaption{font-size:12px;color:var(--muted);line-height:1.5}
 .new{color:var(--pine);font-weight:700}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+h1,h2,.axis blockquote,.copy .big{letter-spacing:.06em}
+h1{font-size:clamp(24px,4.6vw,32px)}
+.logo{font-family:var(--font-num);font-weight:600;font-size:22px;letter-spacing:.02em;color:var(--ink)}
+.axis{background:var(--pine-soft);color:var(--ink)}
+.axis .label{color:var(--muted);opacity:1}
+.story.main{border:1px solid var(--pine)}
+.story .badge{background:var(--sun);color:#fff}
+.story h3,.cell .v,td:first-child,.faq dt::before,.num,.faq.plain dt{color:var(--pine)}
+.bubble.a{background:var(--pine-soft);color:var(--ink)}
+.new{color:var(--sun)}
 </style>
 </head>
 <body>
@@ -137,6 +147,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
   <header class="hero">
    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+    <span class="logo">babuuu.</span>
     <div class="tag"><b>KATOJI</b> ワゴンストローラー <span class="chip">販売価格 <span>50,000</span>円</span><span class="chip ec">楽天市場 babuuu.</span></div>
     <h1>ECサイトで伝える接客ストーリー</h1>
     <p class="lead">楽天市場のbabuuu.で販売する前提のガイドです。ECサイトでは、店頭のように話しかけたり、実物に触ってもらったりができません。商品ページそのものを「接客」と考え、スクロールしながら「これがある休日」を思い浮かべてもらう構成にします。</p>
@@ -323,16 +334,6 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
         </tbody>
       </table>
     </div>
-  </section>
-
-  <section>
-    <h2>楽天の商品ページで使えること <small>babuuu.のいつものやり方に合わせて</small></h2>
-    <dl class="faq plain">
-      <div><dt>商品名のキーワード</dt><dd>例：カトージ ワゴンストローラー ベビーカー 【対象月齢 : 生後6か月〜体重22kg(48か月頃)まで】 アウトドア キャンプ ピクニック モスキートネット付き UPF50+ 背面・対面 ロングユース ベビー用品 KATOJI</dd></div>
-      <div><dt>購入特典・レビュー特典</dt><dd>ショップではスリーパーやクールシートの購入特典、レビュー特典を行っています。この商品も対象にできれば、最後のひと押しになります</dd></div>
-      <div><dt>発売のタイミング</dt><dd>お買い物マラソンや5のつく日のクーポンと重なる時期に、Instagramの告知とあわせて出すと見てもらいやすくなります</dd></div>
-      <div><dt>保証・配送の表示</dt><dd>他のKATOJI商品と同じく「1年保証」「送料無料」「即納」などが当てはまるなら、商品名と画像にも入れます（要確認）</dd></div>
-    </dl>
   </section>
 
   <section>
