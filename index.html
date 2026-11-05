@@ -12,29 +12,29 @@
 <style>
 /* Layout: 1カラムのEC接客ガイド。軸 → 3つのストーリー → 商品ページの流れ → 価格 → 流入別の言い換え → 先回りFAQ → 問い合わせ返信 */
 :root{
-  --bg:#faf8f5;
+  --bg:#fafafa;
   --surface:#ffffff;
-  --ink:#3a3632;
-  --muted:#8a8178;
-  --line:#e8e2da;
-  --pine:#8c7563;
-  --pine-soft:#f1ebe4;
+  --ink:#222222;
+  --muted:#767676;
+  --line:#e2e2e2;
+  --pine:#333333;
+  --pine-soft:#efe7db;
   --on-pine:#ffffff;
-  --sun:#d9864a;
-  --sun-soft:#f7ece2;
+  --sun:#111111;
+  --sun-soft:#e9dfd0;
   --font-display:"Noto Sans JP","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
   --font-body:"Noto Sans JP","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
   --font-num:"Quicksand","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1a1816; --surface:#24211e; --ink:#eee8e2; --muted:#ab9f93; --line:#38332e;
-    --pine:#cdb7a3; --pine-soft:#2e2924; --on-pine:#1a1816; --sun:#e8a070; --sun-soft:#3a2c22; color-scheme:dark;
+    --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#9a9a9a; --line:#333333;
+    --pine:#d6d6d6; --pine-soft:#2d2924; --on-pine:#141414; --sun:#f2f2f2; --sun-soft:#3a342c; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#1a1816; --surface:#24211e; --ink:#eee8e2; --muted:#ab9f93; --line:#38332e;
-  --pine:#cdb7a3; --pine-soft:#2e2924; --on-pine:#1a1816; --sun:#e8a070; --sun-soft:#3a2c22; color-scheme:dark;
+  --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#9a9a9a; --line:#333333;
+  --pine:#d6d6d6; --pine-soft:#2d2924; --on-pine:#141414; --sun:#f2f2f2; --sun-soft:#3a342c; color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.8;
@@ -135,10 +135,10 @@ h1{font-size:clamp(24px,4.6vw,32px)}
 .axis{background:var(--pine-soft);color:var(--ink)}
 .axis .label{color:var(--muted);opacity:1}
 .story.main{border:1px solid var(--pine)}
-.story .badge{background:var(--sun);color:#fff}
+.story .badge{background:var(--sun);color:var(--bg)}
 .story h3,.cell .v,td:first-child,.faq dt::before,.num,.faq.plain dt{color:var(--pine)}
 .bubble.a{background:var(--pine-soft);color:var(--ink)}
-.new{color:var(--sun)}
+.new{color:var(--ink);font-weight:700}
 </style>
 </head>
 <body>
