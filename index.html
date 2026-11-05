@@ -15,7 +15,7 @@
   --bg:#fafafa;
   --surface:#ffffff;
   --ink:#222222;
-  --muted:#767676;
+  --muted:#555555;
   --line:#e2e2e2;
   --pine:#333333;
   --pine-soft:#efe7db;
@@ -28,12 +28,12 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#9a9a9a; --line:#333333;
+    --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#b8b8b8; --line:#333333;
     --pine:#d6d6d6; --pine-soft:#2d2924; --on-pine:#141414; --sun:#f2f2f2; --sun-soft:#3a342c; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#9a9a9a; --line:#333333;
+  --bg:#141414; --surface:#1e1e1e; --ink:#eeeeee; --muted:#b8b8b8; --line:#333333;
   --pine:#d6d6d6; --pine-soft:#2d2924; --on-pine:#141414; --sun:#f2f2f2; --sun-soft:#3a342c; color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -139,6 +139,20 @@ h1{font-size:clamp(24px,4.6vw,32px)}
 .story h3,.cell .v,td:first-child,.faq dt::before,.num,.faq.plain dt{color:var(--pine)}
 .bubble.a{background:var(--pine-soft);color:var(--ink)}
 .new{color:var(--ink);font-weight:700}
+/* 読みやすさ調整 */
+body{font-size:16.5px;line-height:1.95;letter-spacing:.03em;-webkit-font-smoothing:antialiased}
+.lead,.story .value,.copy,.say{font-size:16px}
+.story ul,.faq dd,.note,.tip,.shots figcaption,.show,.cell .f,table{font-size:14.5px}
+.story .mat strong,.cell .k,th,h2 small,.tag,.axis .label{font-size:13px}
+.faq dt,.step-head h3{font-size:16.5px;font-weight:700}
+.story h3{font-size:19px;font-weight:700}
+h2{font-size:24px;font-weight:700}
+h1{font-weight:700}
+.axis blockquote{font-weight:700}
+.copy .big{font-size:19px;font-weight:700}
+.bubble{font-size:15px}
+.story li+li{margin-top:8px}
+.lead{max-width:none}
 </style>
 </head>
 <body>
