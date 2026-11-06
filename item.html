@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Kaisei+Opti:wght@700&family=Josefin+Sans:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Josefin+Sans:wght@500;600;700&display=swap">
 <style>
 /* Layout: 色の帯を重ねていく縦長の商品ページ。色は商品の4色（オレンジ・ベージュ・ライトグレー・チャコール）と、写真の空色・花の黄色から。PCは左右レイアウト、SPは縦積みで別に組む */
 :root{
@@ -27,7 +27,7 @@
   --charcoal:#47464a;
   --white:#ffffff;
   --jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
-  --accent:"Kaisei Opti","Hiragino Mincho ProN","Yu Mincho",serif;
+  --accent:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
   --en:"Josefin Sans","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
 }
@@ -219,6 +219,89 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.45;text-wrap:balance}
   .cta{padding-block:72px}
   .cta a{padding:18px 40px;width:100%}
 }
+
+/* ========== POP：色のかたまり＋太いフチ取り＋ななめの帯で「楽しい」を足す ========== */
+:root{
+  --orange:#ff6b2c;--orange-deep:#e2501a;--orange-pale:#ffd9c4;
+  --sky:#9ad7f5;--sky-deep:#1f6fa3;--sun:#ffd23f;--sun-pale:#fff0b0;
+  --pink:#ff9fbf;--mint:#a9e5cf;--line:3px solid var(--ink);--pop:6px 6px 0 var(--ink);
+}
+h1,h2,h3,.fv h1,.answer h2,.cta p.pre,.gift h3{font-family:var(--jp);font-weight:900}
+.fv h1{font-size:clamp(40px,5.4vw,68px);line-height:1.38}
+.fv h1 em{display:inline-block;background:var(--sun);color:var(--ink);padding:0 .18em;border:var(--line);box-shadow:var(--pop);transform:rotate(-2.5deg);margin:.12em 0}
+.fv-new b{border:var(--line);box-shadow:3px 3px 0 var(--ink)}
+.fv-photo img{border:var(--line);border-bottom:0}
+.fv{background-color:var(--sky);background-image:radial-gradient(rgba(255,255,255,.55) 2.2px,transparent 2.6px);background-size:26px 26px}
+
+/* 流れる帯 */
+.ticker{background:var(--ink);color:var(--sun);overflow:hidden;transform:rotate(-2deg);margin:-14px -20px 0;position:relative;z-index:2;border-block:3px solid var(--ink)}
+.ticker div{display:flex;width:max-content;animation:tick 26s linear infinite}
+.ticker span{font-weight:900;font-size:clamp(20px,2.4vw,28px);padding:14px 0;white-space:nowrap;letter-spacing:.08em}
+.ticker span i{font-style:normal;display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--orange);margin:0 26px;vertical-align:middle}
+.ticker span i:nth-of-type(2n){background:var(--pink)}
+.ticker span i:nth-of-type(3n){background:var(--sky)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none}}
+
+/* 悩み：ふきだし */
+.worry{padding-top:120px}
+.worry h2,.for-head h2,.feat h2,.colors h2{font-size:clamp(30px,4.2vw,50px)}
+.voice .who{border:var(--line);box-shadow:4px 4px 0 var(--ink);font-weight:900}
+.voice:nth-child(2) .who{background:var(--pink)}
+.voice:nth-child(4) .who{background:var(--mint)}
+.voice p{position:relative;background:var(--white);border:var(--line);border-radius:22px;padding:18px 24px;box-shadow:var(--pop)}
+.voice p::before{content:"";position:absolute;left:-14px;top:22px;width:22px;height:22px;background:var(--white);border-left:var(--line);border-bottom:var(--line);transform:rotate(45deg)}
+
+/* 答え：ななめに切った色面 */
+.answer{clip-path:polygon(0 5%,100% 0,100% 95%,0 100%);padding-block:150px;margin-block:-30px;position:relative;z-index:1}
+.answer h2{font-size:clamp(56px,9.5vw,128px);line-height:1.2}
+.answer h2 b{display:inline-block;background:var(--ink);color:var(--sun);padding:0 .14em;transform:rotate(2deg)}
+
+/* こんな人：番号ステッカー */
+.for-head{padding-top:130px}
+body{counter-reset:p;overflow-x:clip}
+.person{counter-increment:p}
+.person .tag{border:var(--line);box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);font-weight:900;font-size:16px;padding:6px 16px}
+.person .tag::before{content:counter(p,decimal-leading-zero);font-family:var(--en);font-weight:700;margin-right:10px;color:var(--orange-deep)}
+.person .photo img,.long-pics img,.f-photo img,.colors img{border:var(--line);box-shadow:10px 10px 0 var(--ink)}
+.person h3{font-size:clamp(30px,3.8vw,46px)}
+.p-gift{background:var(--pink)}
+.twotone span,.twotone b{border:var(--line)}
+.twotone b{box-shadow:4px 4px 0 var(--ink)}
+
+/* 機能：数字をステッカーに */
+.f-num{display:inline-flex;align-items:center;justify-content:center;background:var(--sun);color:var(--ink);border:var(--line);box-shadow:var(--pop);padding:14px 22px 8px;transform:rotate(-3deg)}
+.f-plain div{border:var(--line);box-shadow:var(--pop);border-radius:20px}
+.f-plain div:nth-child(1){background:var(--mint)}
+.f-plain div:nth-child(2){background:var(--sun-pale)}
+.f-plain span{color:var(--ink)}
+
+/* カラー：ななめの帯 */
+.colors{clip-path:polygon(0 0,100% 4%,100% 100%,0 96%);padding-block:140px}
+.colors img{box-shadow:10px 10px 0 var(--sun)}
+.colors img{border-color:var(--white)}
+.swatches i{border:3px solid var(--white)}
+
+/* CTA */
+.cta{background-color:var(--sun);background-image:radial-gradient(rgba(255,255,255,.6) 2.2px,transparent 2.6px);background-size:26px 26px}
+.cta p.pre{font-size:clamp(30px,4.2vw,48px)}
+.cta .price b{display:inline-block;background:var(--white);border:var(--line);box-shadow:var(--pop);padding:6px 20px 0;transform:rotate(-2deg)}
+.cta a{background:var(--orange);border:var(--line);box-shadow:var(--pop);transition:transform .15s,box-shadow .15s}
+.cta a:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+@media (max-width:767px){
+  .fv h1{font-size:38px}
+  .ticker{margin-inline:-30px}
+  .worry h2,.for-head h2,.feat h2,.colors h2{font-size:28px}
+  .voice{grid-template-columns:1fr;gap:12px}
+  .voice p{padding:16px 18px;font-size:18px}
+  .voice p::before{left:26px;top:-14px;transform:rotate(135deg)}
+  .answer{padding-block:110px}
+  .answer h2{font-size:52px}
+  .person h3{font-size:28px}
+  .person .photo img,.long-pics img,.f-photo img,.colors img{box-shadow:7px 7px 0 var(--ink)}
+  .colors img{box-shadow:7px 7px 0 var(--sun)}
+  .colors{padding-block:110px}
+}
 </style>
 </head>
 <body>
@@ -235,6 +318,11 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.45;text-wrap:balance}
     <div class="fv-photo"><img src="img/5.jpg" alt="ワゴンストローラーに乗った男の子とワンちゃん、笑顔の家族"></div>
   </div>
 </section>
+
+<div class="ticker" aria-hidden="true"><div>
+  <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
+  <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
+</div></div>
 
 <!-- 悩み -->
 <section class="worry band">
@@ -253,7 +341,7 @@ h1,h2,h3{margin:0;font-weight:900;line-height:1.45;text-wrap:balance}
 <section class="answer band">
   <div class="inner">
     <div>
-      <h2>ぜんぶ、<br>この1台に。</h2>
+      <h2>ぜんぶ、<br><b>この1台</b>に。</h2>
       <p>子どもの座る場所も、<br class="sp">ワンちゃんの居場所も、<br>おでかけの荷物も。<br>ワゴンストローラーなら、<br class="sp">ひとりでも押して出かけられます。</p>
     </div>
   </div>
