@@ -234,6 +234,7 @@ h1,h2,h3,.fv h1,.answer h2,.cta p.pre,.gift h3{font-family:var(--jp);font-weight
 .fv{background-color:var(--sky);background-image:radial-gradient(rgba(255,255,255,.55) 2.2px,transparent 2.6px);background-size:26px 26px}
 
 /* 流れる帯 */
+.ticker-wrap{overflow:hidden;padding-block:24px;margin-block:-24px;position:relative;z-index:2}
 .ticker{background:var(--ink);color:var(--sun);overflow:hidden;transform:rotate(-2deg);margin:-14px -20px 0;position:relative;z-index:2;border-block:3px solid var(--ink)}
 .ticker div{display:flex;width:max-content;animation:tick 26s linear infinite}
 .ticker span{font-weight:900;font-size:clamp(20px,2.4vw,28px);padding:14px 0;white-space:nowrap;letter-spacing:.08em}
@@ -319,10 +320,10 @@ body{counter-reset:p;overflow-x:clip}
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div>
+<div class="ticker-wrap"><div class="ticker" aria-hidden="true"><div>
   <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
   <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
-</div></div>
+</div></div></div>
 
 <!-- 悩み -->
 <section class="worry band">
