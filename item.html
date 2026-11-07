@@ -9,7 +9,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Josefin+Sans:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Montserrat:wght@500;600;700;800&display=swap">
 <style>
 /* Layout: 色の帯を重ねていく縦長の商品ページ。色は商品の4色（オレンジ・ベージュ・ライトグレー・チャコール）と、写真の空色・花の黄色から。PCは左右レイアウト、SPは縦積みで別に組む */
 :root{
@@ -29,7 +29,7 @@
   --white:#ffffff;
   --jp:"BIZ UDPGothic","Hiragino Sans","Yu Gothic","YuGothic",sans-serif;
   --accent:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
-  --en:"Josefin Sans","Helvetica Neue",Arial,sans-serif;
+  --en:"Montserrat","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -304,6 +304,40 @@ body{counter-reset:p;overflow-x:clip}
   .colors img{box-shadow:7px 7px 0 var(--sun)}
   .colors{padding-block:110px}
 }
+
+/* ========== 数字フォント調整（Montserrat） ========== */
+.f-num{padding:10px 22px}
+.cta .price b{padding:4px 20px}
+.fv-new b{padding:4px 10px}
+
+/* ========== 動き ========== */
+/* タイトルを1文字ずつ */
+.fv h1 .ch{display:inline-block;opacity:0;transform:translateY(.45em);animation:chIn .55s cubic-bezier(.2,.8,.3,1.2) forwards}
+.fv h1 em.js-box{opacity:0;transform:scaleX(.2);transform-origin:left center;animation:boxIn .45s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes chIn{to{opacity:1;transform:none}}
+@keyframes boxIn{to{opacity:1;transform:none}}
+.js .fv-new,.js .fv-lead,.js .fv-name{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.js .fv-photo{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.3,1)}
+.js.fv-done .fv-new,.js.fv-done .fv-lead,.js.fv-done .fv-name,.js.fv-done .fv-photo{opacity:1;transform:none}
+.js .fv-new{transition-delay:0s!important}
+/* スクロールで出てくる */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
+.js .rv.pop{transform:scale(.6)}
+.js .rv.in{opacity:1;transform:none}
+/* ふわっと揺れる（向きは変えない） */
+.who{animation:bob 3.2s ease-in-out infinite}
+.voice:nth-child(2) .who{animation-delay:.4s}
+.voice:nth-child(3) .who{animation-delay:.8s}
+.voice:nth-child(4) .who{animation-delay:1.2s}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.cta a{animation:nudge 2.4s ease-in-out infinite}
+.cta a:hover{animation:none}
+@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateY(-6px)}90%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  .fv h1 .ch,.fv h1 em.js-box{animation:none;opacity:1;transform:none}
+  .js .rv,.js .fv-new,.js .fv-lead,.js .fv-name,.js .fv-photo{opacity:1;transform:none;transition:none}
+  .who,.cta a{animation:none}
+}
 </style>
 </head>
 <body>
@@ -497,5 +531,57 @@ body{counter-reset:p;overflow-x:clip}
 </section>
 
 <footer class="foot band"><b>babuuu.</b>　スタイリッシュな子育てライフを。</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root=document.documentElement;
+  if(reduce||!('IntersectionObserver' in window))return;
+  root.classList.add('js');
+  // タイトルを1文字ずつ
+  var h1=document.querySelector('.fv h1'),i=0,step=75,start=250;
+  function wrap(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var f=document.createDocumentFragment();
+        Array.from(n.textContent).forEach(function(c){
+          var sp=document.createElement('span');sp.className='ch';sp.textContent=c;
+          sp.style.animationDelay=(start+i*step)+'ms';i++;f.appendChild(sp);
+        });
+        n.parentNode.replaceChild(f,n);
+      }else if(n.nodeName==='EM'){
+        n.classList.add('js-box');n.style.animationDelay=(start+i*step-60)+'ms';wrap(n);
+      }
+    });
+  }
+  h1.setAttribute('aria-label',h1.textContent);
+  wrap(h1);
+  var total=start+i*step+300;
+  var after=['.fv-lead','.fv-name','.fv-photo'];
+  after.forEach(function(sel,k){var el=document.querySelector(sel);if(el)el.style.transitionDelay=(total+k*160)+'ms';});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('fv-done');});});
+  // スクロールで出てくる
+  var groups=[
+    ['.worry h2,.for-head h2,.for-head p,.feat h2,.colors h2,.colors p,.spec h2',0],
+    ['.voice',120],
+    ['.answer h2,.answer p',150],
+    ['.person .photo,.person .long-pics,.person .inner>div:not(.photo):not(.long-pics),.gift .inner>*',120],
+    ['.f,.f-plain>div',120],
+    ['.colors img,.spec dl,.qa',0],
+    ['.cta .pre,.cta .price,.cta a,.cta .note',140]
+  ];
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
+  groups.forEach(function(g){
+    var els=document.querySelectorAll(g[0]),prev=null,n=0;
+    els.forEach(function(el){
+      if(el.parentNode!==prev){prev=el.parentNode;n=0;}
+      el.classList.add('rv');el.style.transitionDelay=(n*g[1])+'ms';n++;io.observe(el);
+    });
+  });
+  document.querySelectorAll('.swatches li,.f-num,.cta .price b').forEach(function(el,k){
+    el.classList.add('rv','pop');el.style.transitionDelay=((k%4)*110)+'ms';io.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
