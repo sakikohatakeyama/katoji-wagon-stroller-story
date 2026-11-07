@@ -430,6 +430,38 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   .ieq{font-size:34px;line-height:1}
   .ione{font-size:40px}
 }
+
+/* ========== 調整：中央ぞろえ／英字は端まで行かない大きさ／英字が流れる帯 ========== */
+.intro-txt{animation-delay:2.6s}
+.worry h2,.for-head .inner,.feat h2,.spec h2,.answer .inner,.gift .inner{text-align:center}
+.colors .inner>div{text-align:center}
+.swatches{max-width:460px;margin-inline:auto}
+.answer p{margin-inline:auto}
+.chips a{align-items:center;text-align:center}
+.person .inner>div:not(.photo):not(.long-pics){text-align:center}
+.person ul{display:inline-flex;text-align:left}
+.twotone{justify-content:center}
+.f>div:not(.f-photo){text-align:center}
+.f-plain div{text-align:center}
+.voices{align-items:center}
+.voice,.voice:nth-child(even){margin-inline:auto;width:100%}
+.worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en,.answer p.big-en,.cta p.big-en{font-size:clamp(52px,7.2vw,108px)}
+.fv-big{font-size:clamp(64px,10vw,150px)}
+.ticker-wrap{background:var(--white);padding:34px 0 0;margin:0}
+.ticker{background:none;color:var(--sky-deep);border:0;transform:none}
+.ticker div{animation-duration:48s}
+.ticker span{font-family:var(--en);font-weight:600;font-size:clamp(34px,4.6vw,68px);letter-spacing:.01em;padding:0}
+.ticker em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--orange)}
+.ticker span i{width:10px;height:10px;margin:0 .7em}
+.worry{padding-top:72px}
+@media (max-width:767px){
+  .fv-copy{text-align:center;align-items:center}
+  .fv-name{width:100%}
+  .worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en,.answer p.big-en,.cta p.big-en{font-size:clamp(36px,10.5vw,46px)}
+  .fv-big{font-size:15vw}
+  .ticker span{font-size:30px}
+  .worry{padding-top:56px}
+}
 </style>
 </head>
 <body>
@@ -437,14 +469,14 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 <div class="intro" aria-hidden="true">
   <div class="intro-row">
     <div class="intro-items">
-      <figure class="ii" style="--d:.1s"><svg viewBox="0 0 64 64"><path d="M16 58q0-18 16-18t16 18z" fill="#ff6b2c"/><circle cx="32" cy="24" r="11" fill="#fff0b0"/><circle cx="28" cy="24" r="1.6" fill="#2b2724" stroke="none"/><circle cx="36" cy="24" r="1.6" fill="#2b2724" stroke="none"/></svg><figcaption>子ども</figcaption></figure>
-      <i class="ip" style="--d:.3s">+</i>
-      <figure class="ii" style="--d:.4s"><svg viewBox="0 0 64 64"><path d="M19 22q-9 2-8 18q8 0 11-9z" fill="#c98d5a"/><path d="M45 22q9 2 8 18q-8 0-11-9z" fill="#c98d5a"/><ellipse cx="32" cy="36" rx="15" ry="15" fill="#eee4d5"/><circle cx="26" cy="33" r="1.8" fill="#2b2724" stroke="none"/><circle cx="38" cy="33" r="1.8" fill="#2b2724" stroke="none"/><ellipse cx="32" cy="41" rx="4" ry="3" fill="#2b2724"/></svg><figcaption>ワンちゃん</figcaption></figure>
+      <figure class="ii" style="--d:.2s"><svg viewBox="0 0 64 64"><path d="M16 58q0-18 16-18t16 18z" fill="#ff6b2c"/><circle cx="32" cy="24" r="11" fill="#fff0b0"/><circle cx="28" cy="24" r="1.6" fill="#2b2724" stroke="none"/><circle cx="36" cy="24" r="1.6" fill="#2b2724" stroke="none"/></svg><figcaption>子ども</figcaption></figure>
+      <i class="ip" style="--d:1.2s">+</i>
+      <figure class="ii" style="--d:.8s"><svg viewBox="0 0 64 64"><path d="M19 22q-9 2-8 18q8 0 11-9z" fill="#c98d5a"/><path d="M45 22q9 2 8 18q-8 0-11-9z" fill="#c98d5a"/><ellipse cx="32" cy="36" rx="15" ry="15" fill="#eee4d5"/><circle cx="26" cy="33" r="1.8" fill="#2b2724" stroke="none"/><circle cx="38" cy="33" r="1.8" fill="#2b2724" stroke="none"/><ellipse cx="32" cy="41" rx="4" ry="3" fill="#2b2724"/></svg><figcaption>ワンちゃん</figcaption></figure>
       <i class="ip" style="--d:.6s">+</i>
-      <figure class="ii" style="--d:.7s"><svg viewBox="0 0 64 64"><path d="M24 26v-5q0-7 8-7t8 7v5" fill="none"/><rect x="13" y="26" width="38" height="30" rx="7" fill="#9ad7f5"/><path d="M13 38h38" fill="none"/></svg><figcaption>荷物</figcaption></figure>
+      <figure class="ii" style="--d:1.4s"><svg viewBox="0 0 64 64"><path d="M24 26v-5q0-7 8-7t8 7v5" fill="none"/><rect x="13" y="26" width="38" height="30" rx="7" fill="#9ad7f5"/><path d="M13 38h38" fill="none"/></svg><figcaption>荷物</figcaption></figure>
     </div>
-    <i class="ieq" style="--d:1s">=</i>
-    <div class="ione" style="--d:1.15s"><b>1</b>台</div>
+    <i class="ieq" style="--d:1.9s">=</i>
+    <div class="ione" style="--d:2.1s"><b>1</b>台</div>
   </div>
   <p class="intro-txt">ぜんぶ、この1台に。<small>KATOJI WAGON STROLLER</small></p>
 </div>
@@ -464,8 +496,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 </section>
 
 <div class="ticker-wrap"><div class="ticker" aria-hidden="true"><div>
-  <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
-  <span>この子も<i></i>あの子も<i></i>いっしょに、おでかけ<i></i>ベビーカーとペットカートを、1台に<i></i></span>
+  <span>One wagon, <em>all together</em><i></i>Little one, furry one, <em>and you</em><i></i>Let&rsquo;s go out <em>today</em><i></i></span>
+  <span>One wagon, <em>all together</em><i></i>Little one, furry one, <em>and you</em><i></i>Let&rsquo;s go out <em>today</em><i></i></span>
 </div></div></div>
 
 <!-- 悩み -->
@@ -657,8 +689,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   root.classList.add('js');
   // タイトルを1文字ずつ
   var intro=document.querySelector('.intro');
-  var h1=document.querySelector('.fv h1'),i=0,step=60,start=intro?2600:250;
-  if(intro){setTimeout(function(){intro.classList.add('gone');},2300);setTimeout(function(){intro.remove();},3300);}
+  var h1=document.querySelector('.fv h1'),i=0,step=60,start=intro?4500:250;
+  if(intro){setTimeout(function(){intro.classList.add('gone');},4200);setTimeout(function(){intro.remove();},5200);}
   function wrap(node){
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType===3){
