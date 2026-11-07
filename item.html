@@ -410,11 +410,44 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 
 .answer p.big-en,.cta p.big-en{font-size:clamp(64px,12.5vw,184px);font-weight:800;line-height:.92;margin-top:0}
 @media (max-width:767px){.answer p.big-en,.cta p.big-en{font-size:clamp(52px,15vw,72px)}}
+
+/* ========== オープニング ロゴ（子ども＋ワンちゃん＋荷物＝1台） ========== */
+.js .intro{flex-direction:column;gap:clamp(22px,4vh,40px)}
+.intro-row{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
+.intro-items{display:flex;align-items:center;gap:clamp(8px,1.4vw,18px)}
+.ii{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;transform:scale(.3);animation:numIn .5s cubic-bezier(.2,.9,.3,1.5) var(--d) forwards}
+.ii svg{width:clamp(64px,9vw,120px);height:auto;background:var(--white);border:3px solid var(--ink);border-radius:50%;box-shadow:5px 5px 0 var(--ink);stroke:var(--ink);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.ii figcaption{font-weight:700;font-size:clamp(13px,1.3vw,17px);color:var(--ink)}
+.ip,.ieq{font-style:normal;font-family:var(--en);font-weight:800;font-size:clamp(30px,4vw,56px);color:var(--ink);opacity:0;animation:chIn .35s ease var(--d) forwards;transform:translateY(10px);margin-bottom:28px}
+.ione{display:flex;align-items:baseline;font-weight:700;font-size:clamp(40px,5.5vw,80px);color:var(--ink);opacity:0;transform:scale(.3);animation:numIn .6s cubic-bezier(.2,.9,.3,1.6) var(--d) forwards;margin-bottom:28px}
+.ione b{font-family:var(--en);font-weight:800;font-size:2.3em;line-height:.8;color:var(--orange);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;margin-right:.04em}
+.intro-txt{text-align:center;font-family:var(--jp);font-weight:700;font-size:clamp(22px,2.8vw,36px);animation-delay:1.4s}
+.intro-txt small{font-family:var(--en);font-weight:700;font-size:.5em;letter-spacing:.2em;color:var(--sky-deep)}
+@media (max-width:767px){
+  .intro-row{flex-direction:column;gap:6px}
+  .ip,.ieq,.ione{margin-bottom:0}
+  .ip{margin-bottom:26px}
+  .ieq{font-size:34px;line-height:1}
+  .ione{font-size:40px}
+}
 </style>
 </head>
 <body>
 
-<div class="intro" aria-hidden="true"><span class="intro-num">1</span><span class="intro-txt">ONE WAGON,<br>ALL TOGETHER.<small>ぜんぶ、この1台に。</small></span></div>
+<div class="intro" aria-hidden="true">
+  <div class="intro-row">
+    <div class="intro-items">
+      <figure class="ii" style="--d:.1s"><svg viewBox="0 0 64 64"><path d="M16 58q0-18 16-18t16 18z" fill="#ff6b2c"/><circle cx="32" cy="24" r="11" fill="#fff0b0"/><circle cx="28" cy="24" r="1.6" fill="#2b2724" stroke="none"/><circle cx="36" cy="24" r="1.6" fill="#2b2724" stroke="none"/></svg><figcaption>子ども</figcaption></figure>
+      <i class="ip" style="--d:.3s">+</i>
+      <figure class="ii" style="--d:.4s"><svg viewBox="0 0 64 64"><path d="M19 22q-9 2-8 18q8 0 11-9z" fill="#c98d5a"/><path d="M45 22q9 2 8 18q-8 0-11-9z" fill="#c98d5a"/><ellipse cx="32" cy="36" rx="15" ry="15" fill="#eee4d5"/><circle cx="26" cy="33" r="1.8" fill="#2b2724" stroke="none"/><circle cx="38" cy="33" r="1.8" fill="#2b2724" stroke="none"/><ellipse cx="32" cy="41" rx="4" ry="3" fill="#2b2724"/></svg><figcaption>ワンちゃん</figcaption></figure>
+      <i class="ip" style="--d:.6s">+</i>
+      <figure class="ii" style="--d:.7s"><svg viewBox="0 0 64 64"><path d="M24 26v-5q0-7 8-7t8 7v5" fill="none"/><rect x="13" y="26" width="38" height="30" rx="7" fill="#9ad7f5"/><path d="M13 38h38" fill="none"/></svg><figcaption>荷物</figcaption></figure>
+    </div>
+    <i class="ieq" style="--d:1s">=</i>
+    <div class="ione" style="--d:1.15s"><b>1</b>台</div>
+  </div>
+  <p class="intro-txt">ぜんぶ、この1台に。<small>KATOJI WAGON STROLLER</small></p>
+</div>
 
 <!-- FV -->
 <section class="fv band">
@@ -624,8 +657,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   root.classList.add('js');
   // タイトルを1文字ずつ
   var intro=document.querySelector('.intro');
-  var h1=document.querySelector('.fv h1'),i=0,step=60,start=intro?1600:250;
-  if(intro){setTimeout(function(){intro.classList.add('gone');},1300);setTimeout(function(){intro.remove();},2500);}
+  var h1=document.querySelector('.fv h1'),i=0,step=60,start=intro?2600:250;
+  if(intro){setTimeout(function(){intro.classList.add('gone');},2300);setTimeout(function(){intro.remove();},3300);}
   function wrap(node){
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType===3){
