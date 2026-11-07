@@ -390,9 +390,28 @@ html{scroll-behavior:smooth}
   .answer h2{font-size:56px}
 }
 @media (prefers-reduced-motion:reduce){.answer::before,.cta::before{animation:none}}
+
+/* ========== オープニング「1」＋画面のフチ ========== */
+.intro{display:none}
+.js .intro{display:flex;position:fixed;inset:0;z-index:100;background-color:var(--sky);background-image:radial-gradient(rgba(255,255,255,.55) 2.2px,transparent 2.6px);background-size:26px 26px;align-items:center;justify-content:center;gap:3vmin;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.js .intro.gone{transform:translateY(-102%)}
+.intro-num{font-family:var(--en);font-weight:800;font-size:62vmin;line-height:.8;color:var(--orange);-webkit-text-stroke:6px var(--ink);paint-order:stroke fill;transform:scale(.2);opacity:0;animation:numIn .7s cubic-bezier(.2,.9,.3,1.4) .1s forwards}
+.intro-txt{font-family:var(--en);font-weight:800;font-size:clamp(22px,4.4vmin,48px);line-height:1.15;letter-spacing:.02em;color:var(--ink);opacity:0;transform:translateY(20px);animation:chIn .5s ease .6s forwards}
+.intro-txt small{display:block;font-family:var(--jp);font-weight:700;font-size:.55em;letter-spacing:.08em;margin-top:.6em}
+@keyframes numIn{to{transform:none;opacity:1}}
+html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);pointer-events:none;z-index:90}
+@media (max-width:767px){
+  html::after{border-width:6px}
+  .js .intro{flex-direction:column}
+  .intro-num{font-size:55vmin}
+  .intro-txt{text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.js .intro{display:none}}
 </style>
 </head>
 <body>
+
+<div class="intro" aria-hidden="true"><span class="intro-num">1</span><span class="intro-txt">ONE WAGON,<br>ALL TOGETHER.<small>ぜんぶ、この1台に。</small></span></div>
 
 <!-- FV -->
 <section class="fv band">
@@ -601,7 +620,9 @@ html{scroll-behavior:smooth}
   if(reduce||!('IntersectionObserver' in window))return;
   root.classList.add('js');
   // タイトルを1文字ずつ
-  var h1=document.querySelector('.fv h1'),i=0,step=75,start=250;
+  var intro=document.querySelector('.intro');
+  var h1=document.querySelector('.fv h1'),i=0,step=75,start=intro?1900:250;
+  if(intro){setTimeout(function(){intro.classList.add('gone');},1500);setTimeout(function(){intro.remove();},2500);}
   function wrap(node){
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType===3){
