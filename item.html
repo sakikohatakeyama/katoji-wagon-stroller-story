@@ -338,6 +338,58 @@ body{counter-reset:p;overflow-x:clip}
   .js .rv,.js .fv-new,.js .fv-lead,.js .fv-name,.js .fv-photo{opacity:1;transform:none;transition:none}
   .who,.cta a{animation:none}
 }
+/* ========== インパクト：大きな飾り英語・番号・目次 ========== */
+html{scroll-behavior:smooth}
+.worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en{display:block;font-family:var(--en);font-weight:800;font-size:clamp(64px,12.5vw,184px);line-height:.92;letter-spacing:-.01em;margin:0 0 22px}
+.worry h2 span,.for-head h2 span,.feat h2 span{color:var(--orange)}
+.colors h2 span{color:var(--sun)}
+.spec h2 span{font-weight:800;font-size:clamp(48px,7vw,96px);line-height:.95;letter-spacing:-.01em;margin-bottom:14px}
+.answer .big-en{color:var(--sun);margin-bottom:28px}
+.cta .big-en{color:var(--orange-deep);margin-bottom:26px}
+.fv-big{font-family:var(--en);font-weight:800;font-size:clamp(84px,17.5vw,272px);line-height:.8;letter-spacing:-.02em;color:var(--orange);margin:0;padding:22px 0 0;white-space:nowrap;text-align:center}
+.fv{padding-bottom:0}
+.person{position:relative;overflow:hidden}
+.person .inner{position:relative;z-index:1}
+.person::after{content:counter(p,decimal-leading-zero);position:absolute;right:-.04em;bottom:-.18em;font-family:var(--en);font-weight:800;font-size:clamp(160px,24vw,340px);line-height:1;color:rgba(255,255,255,.6);pointer-events:none}
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.chips a{display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;border:var(--line);border-radius:16px;box-shadow:5px 5px 0 var(--ink);color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;line-height:1.5;transition:transform .15s,box-shadow .15s}
+.chips a:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.chips a:focus-visible{outline:3px solid var(--orange-deep);outline-offset:4px}
+.chips b{font-family:var(--en);font-weight:800;font-size:34px;line-height:1}
+.chips .c1{background:var(--sun-pale)}.chips .c2{background:var(--orange-pale)}.chips .c3{background:var(--sky)}.chips .c4{background:var(--pink)}
+.js .rv.rx{transform:translateX(-70px)}
+.js .rv.rx.in{transform:none}
+.js .fv-big{opacity:0;transform:translateY(60px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.3,1.1)}
+.js.fv-done .fv-big{opacity:1;transform:none}
+@media (max-width:767px){
+  .worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en{font-size:clamp(52px,15vw,72px);margin-bottom:16px}
+  .spec h2 span{font-size:48px}
+  .fv-big{font-size:21vw;padding-top:18px}
+  .chips{grid-template-columns:1fr 1fr;gap:12px}
+  .chips a{font-size:14px;padding:14px}
+  .chips b{font-size:28px}
+  .person::after{font-size:150px}
+}
+@media (prefers-reduced-motion:reduce){.js .fv-big,.js .rv.rx{opacity:1;transform:none}}
+
+/* ========== 集中線（ゆっくり回る背景）＋フチ付きの大きな英字 ========== */
+.worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en,.fv-big{-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+.fv-big{-webkit-text-stroke:5px var(--ink)}
+.colors h2 span{-webkit-text-stroke-color:var(--white)}
+.answer,.cta{position:relative;overflow:hidden;isolation:isolate}
+.answer::before,.cta::before{content:"";position:absolute;left:50%;top:50%;width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax;z-index:-1;animation:rays 90s linear infinite;pointer-events:none}
+.answer::before{background:repeating-conic-gradient(var(--orange) 0 5deg,#ff8040 5deg 10deg)}
+.cta::before{background:repeating-conic-gradient(var(--sun) 0 5deg,#ffdc63 5deg 10deg)}
+.cta{background-image:none}
+@keyframes rays{to{transform:rotate(360deg)}}
+.answer h2{font-size:clamp(64px,11vw,150px)}
+.answer h2 b{border:var(--line);box-shadow:8px 8px 0 var(--ink);background:var(--white);color:var(--orange-deep);padding:0 .16em;margin:.06em 0}
+@media (max-width:767px){
+  .worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en{-webkit-text-stroke-width:2px}
+  .fv-big{-webkit-text-stroke-width:3px}
+  .answer h2{font-size:56px}
+}
+@media (prefers-reduced-motion:reduce){.answer::before,.cta::before{animation:none}}
 </style>
 </head>
 <body>
@@ -353,6 +405,7 @@ body{counter-reset:p;overflow-x:clip}
     </div>
     <div class="fv-photo"><img src="img/5.jpg" alt="ワゴンストローラーに乗った男の子とワンちゃん、笑顔の家族"></div>
   </div>
+  <p class="fv-big" aria-hidden="true">TOGETHER!</p>
 </section>
 
 <div class="ticker-wrap"><div class="ticker" aria-hidden="true"><div>
@@ -363,7 +416,7 @@ body{counter-reset:p;overflow-x:clip}
 <!-- 悩み -->
 <section class="worry band">
   <div class="inner">
-    <h2><span>DO YOU KNOW?</span>おでかけのたびに、<br>こんなこと<br class="sp">思っていませんか？</h2>
+    <h2><span>SOUND<br class="sp"> FAMILIAR?</span>おでかけのたびに、<br>こんなこと<br class="sp">思っていませんか？</h2>
     <ol class="voices">
       <li class="voice"><div class="who">ひとりで<br>おでかけ</div><p>子どもとワンちゃん、<br>ひとりで連れて行くのは<br class="sp">正直たいへん。<small>リードを持って、ベビーカーを押して、荷物も持って。手が足りない。</small></p></li>
       <li class="voice"><div class="who">2台<br>買う？</div><p>ベビーカーとペットカート、<br>2台そろえるのは<br class="sp">お金も場所も……。<small>玄関にも車にも、2台分のスペースはなかなかない。</small></p></li>
@@ -377,6 +430,7 @@ body{counter-reset:p;overflow-x:clip}
 <section class="answer band">
   <div class="inner">
     <div>
+      <p class="big-en" aria-hidden="true">ALL IN ONE!</p>
       <h2>ぜんぶ、<br><b>この1台</b>に。</h2>
       <p>子どもの座る場所も、<br class="sp">ワンちゃんの居場所も、<br>おでかけの荷物も。<br>ワゴンストローラーなら、<br class="sp">ひとりでも押して出かけられます。</p>
     </div>
@@ -388,10 +442,16 @@ body{counter-reset:p;overflow-x:clip}
   <div class="inner">
     <h2><span>FOR YOU</span>こんな人の、<br class="sp">助けになります。</h2>
     <p>毎日のおでかけが、少しラクに、少し楽しくなる人へ。</p>
+    <nav class="chips" aria-label="こんな人に">
+      <a href="#p1" class="c1"><b>01</b>ひとりで<br>おでかけする日に</a>
+      <a href="#p2" class="c2"><b>02</b>2台目を<br>迷っている家族に</a>
+      <a href="#p3" class="c3"><b>03</b>長く<br>使いたい家族に</a>
+      <a href="#p4" class="c4"><b>04</b>祖父母さまからの<br>ギフトに</a>
+    </nav>
   </div>
 </section>
 
-<section class="person p-solo band">
+<section class="person p-solo band" id="p1">
   <div class="inner">
     <div class="photo"><img src="img/8.jpg" alt="ワゴンストローラーの収納ポケットに荷物を入れる女性"></div>
     <div>
@@ -407,7 +467,7 @@ body{counter-reset:p;overflow-x:clip}
   </div>
 </section>
 
-<section class="person p-two rev band">
+<section class="person p-two rev band" id="p2">
   <div class="inner">
     <div class="photo"><img src="img/7.jpg" alt="たたんだワゴンストローラーを車の荷室に積む男性"></div>
     <div>
@@ -419,7 +479,7 @@ body{counter-reset:p;overflow-x:clip}
   </div>
 </section>
 
-<section class="person p-long band">
+<section class="person p-long band" id="p3">
   <div class="inner">
     <div class="long-pics">
       <figure><img src="img/1c.jpg" alt="ワゴンストローラーに座る赤ちゃん"><figcaption>6 MONTHS</figcaption></figure>
@@ -438,7 +498,7 @@ body{counter-reset:p;overflow-x:clip}
   </div>
 </section>
 
-<section class="person p-gift gift band">
+<section class="person p-gift gift band" id="p4">
   <div class="inner">
     <span class="tag">祖父母さまからのギフトに</span>
     <h3>お孫さんとの<br class="sp">おでかけを、贈る。</h3>
@@ -479,7 +539,7 @@ body{counter-reset:p;overflow-x:clip}
 <section class="colors band">
   <div class="inner">
     <div>
-      <h2><span>COLORS</span>選べる4色。</h2>
+      <h2><span>4 COLORS</span>選べる4色。</h2>
       <p>どの色も、公園の緑と空に映えるカラー。<br>家族のおでかけに合う1台を選んでください。</p>
       <ul class="swatches">
         <li><i style="background:#d8cfc3"></i>ベージュ</li>
@@ -523,6 +583,7 @@ body{counter-reset:p;overflow-x:clip}
 <!-- CTA -->
 <section class="cta band">
   <div class="inner">
+    <p class="big-en" aria-hidden="true">LET&rsquo;S GO!</p>
     <p class="pre">ひとりの日も、<br class="sp">みんなの日も。<br>いっしょに、<br class="sp">おでかけしよう。</p>
     <p class="price"><b>50,000</b>円</p>
     <a href="https://www.rakuten.co.jp/babuuu/">babuuu.で見る</a>
@@ -534,6 +595,7 @@ body{counter-reset:p;overflow-x:clip}
 
 <script>
 (function(){
+  var io0=[];
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root=document.documentElement;
   if(reduce||!('IntersectionObserver' in window))return;
@@ -557,10 +619,11 @@ body{counter-reset:p;overflow-x:clip}
   h1.setAttribute('aria-label',h1.textContent);
   wrap(h1);
   var total=start+i*step+300;
-  var after=['.fv-lead','.fv-name','.fv-photo'];
+  var after=['.fv-lead','.fv-name','.fv-photo','.fv-big'];
   after.forEach(function(sel,k){var el=document.querySelector(sel);if(el)el.style.transitionDelay=(total+k*160)+'ms';});
   requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('fv-done');});});
   // スクロールで出てくる
+  document.querySelectorAll('h2 span,.big-en').forEach(function(el){el.classList.add('rv','rx');io0.push(el);});
   var groups=[
     ['.worry h2,.for-head h2,.for-head p,.feat h2,.colors h2,.colors p,.spec h2',0],
     ['.voice',120],
@@ -578,7 +641,8 @@ body{counter-reset:p;overflow-x:clip}
       el.classList.add('rv');el.style.transitionDelay=(n*g[1])+'ms';n++;io.observe(el);
     });
   });
-  document.querySelectorAll('.swatches li,.f-num,.cta .price b').forEach(function(el,k){
+  io0.forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.chips a,.swatches li,.f-num,.cta .price b').forEach(function(el,k){
     el.classList.add('rv','pop');el.style.transitionDelay=((k%4)*110)+'ms';io.observe(el);
   });
 })();
