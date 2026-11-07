@@ -624,8 +624,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   root.classList.add('js');
   // タイトルを1文字ずつ
   var intro=document.querySelector('.intro');
-  var h1=document.querySelector('.fv h1'),i=0,step=75,start=intro?1900:250;
-  if(intro){setTimeout(function(){intro.classList.add('gone');},1500);setTimeout(function(){intro.remove();},2500);}
+  var h1=document.querySelector('.fv h1'),i=0,step=60,start=intro?1600:250;
+  if(intro){setTimeout(function(){intro.classList.add('gone');},1300);setTimeout(function(){intro.remove();},2500);}
   function wrap(node){
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType===3){
@@ -645,6 +645,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   var total=start+i*step+300;
   var after=['.fv-lead','.fv-name','.fv-photo','.fv-big'];
   after.forEach(function(sel,k){var el=document.querySelector(sel);if(el)el.style.transitionDelay=(total+k*160)+'ms';});
+  var ph=document.querySelector('.fv-photo');if(ph)ph.style.transitionDelay=(start+200)+'ms';
+  var fb=document.querySelector('.fv-big');if(fb)fb.style.transitionDelay=(start+700)+'ms';
   requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('fv-done');});});
   // スクロールで出てくる
   document.querySelectorAll('h2 span,.big-en').forEach(function(el){el.classList.add('rv','rx');io0.push(el);});
