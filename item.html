@@ -470,6 +470,8 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 /* こんな人には、こちら */
 .other{background:var(--mint)}
 .other .inner{text-align:center}
+.other h2 span{display:block;font-family:var(--en);font-weight:800;font-size:clamp(52px,7.2vw,108px);line-height:1;letter-spacing:-.01em;margin:0 0 22px;color:var(--white);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+@media (max-width:767px){.other h2 span{font-size:clamp(36px,10.5vw,46px);-webkit-text-stroke:2px var(--ink);margin-bottom:14px}}
 .other-lead{font-size:18px;line-height:1.9;margin:20px auto 0}
 .other-list{list-style:none;padding:0;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;max-width:1080px}
 .other-list li{display:flex;flex-direction:column}
@@ -480,7 +482,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 .other .ng{border:var(--line);border-bottom:0}
 .other-list a:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
 .other-list a:focus-visible{outline:3px solid var(--orange-deep);outline-offset:4px}
-.other-list img{width:78%;aspect-ratio:1;object-fit:contain;margin-top:14px}
+.other-list img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;margin-top:18px;border:var(--line);border-radius:12px}
 .other-list b{font-size:21px;line-height:1.4}
 .other-list span{font-size:15px;line-height:1.75;color:var(--sub)}
 .other-list em{margin-top:auto;font-style:normal;font-weight:700;font-size:15px;padding:10px 26px;border-radius:999px;background:var(--orange);color:var(--white);border:2px solid var(--ink)}
@@ -488,7 +490,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   .other-lead{font-size:15px;text-align:left}
   .other-list{grid-template-columns:1fr;gap:28px;margin-top:32px}
   .other .ng{font-size:17px}
-  .other-list img{width:62%}
+  .other-list img{width:76%}
 }
 </style>
 </head>
@@ -661,7 +663,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 <!-- こんな人には、こちら -->
 <section class="other band">
   <div class="inner">
-    <h2><span>OTHER CHOICES</span>こんな人には、<br class="sp">こちらがおすすめ。</h2>
+    <h2><span>OTHER<br class="sp"> CHOICES</span>こんな人には、<br class="sp">こちらがおすすめ。</h2>
     <p class="other-lead">ワゴンストローラーは、ゆったり大きめの1台です。<br class="pc">こんな使い方が多いなら、ほかのカトージのベビーカーが合うかもしれません。</p>
     <ul class="other-list">
       <li>
