@@ -351,7 +351,7 @@ html{scroll-behavior:smooth}
 .person{position:relative;overflow:hidden}
 .person .inner{position:relative;z-index:1}
 .person::after{content:counter(p,decimal-leading-zero);position:absolute;right:-.04em;bottom:-.18em;font-family:var(--en);font-weight:800;font-size:clamp(160px,24vw,340px);line-height:1;color:rgba(255,255,255,.6);pointer-events:none}
-.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px;max-width:860px;margin-inline:auto}
 .chips a{display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;border:var(--line);border-radius:16px;box-shadow:5px 5px 0 var(--ink);color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;line-height:1.5;transition:transform .15s,box-shadow .15s}
 .chips a:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
 .chips a:focus-visible{outline:3px solid var(--orange-deep);outline-offset:4px}
@@ -365,7 +365,7 @@ html{scroll-behavior:smooth}
   .worry h2 span,.for-head h2 span,.feat h2 span,.colors h2 span,.big-en{font-size:clamp(52px,15vw,72px);margin-bottom:16px}
   .spec h2 span{font-size:48px}
   .fv-big{font-size:21vw;padding-top:18px}
-  .chips{grid-template-columns:1fr 1fr;gap:12px}
+  .chips{grid-template-columns:1fr;gap:12px}
   .chips a{font-size:14px;padding:14px}
   .chips b{font-size:28px}
   .person::after{font-size:150px}
@@ -467,6 +467,29 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 .ticker-wrap{z-index:auto}
 .fv-copy{text-align:center;align-items:center}
 .fv-name{width:100%}
+/* こんな人には、こちら */
+.other{background:var(--mint)}
+.other .inner{text-align:center}
+.other-lead{font-size:18px;line-height:1.9;margin:20px auto 0}
+.other-list{list-style:none;padding:0;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;max-width:1080px}
+.other-list li{display:flex;flex-direction:column}
+.other .ng{margin:0;padding:16px 12px 30px;background:var(--ink);color:var(--white);font-weight:700;font-size:19px;line-height:1.5;border-radius:16px 16px 0 0;position:relative}
+.other .ng small{display:block;font-size:13px;color:var(--sun);margin-bottom:6px;letter-spacing:.06em}
+.other .ng::after{content:"";position:absolute;left:50%;bottom:-16px;width:30px;height:16px;margin-left:-15px;background:var(--ink);clip-path:polygon(0 0,100% 0,50% 100%);z-index:1}
+.other-list a{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:8px 22px 24px;background:var(--white);border:var(--line);border-top:0;border-radius:0 0 16px 16px;box-shadow:var(--pop);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.other .ng{border:var(--line);border-bottom:0}
+.other-list a:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.other-list a:focus-visible{outline:3px solid var(--orange-deep);outline-offset:4px}
+.other-list img{width:78%;aspect-ratio:1;object-fit:contain;margin-top:14px}
+.other-list b{font-size:21px;line-height:1.4}
+.other-list span{font-size:15px;line-height:1.75;color:var(--sub)}
+.other-list em{margin-top:auto;font-style:normal;font-weight:700;font-size:15px;padding:10px 26px;border-radius:999px;background:var(--orange);color:var(--white);border:2px solid var(--ink)}
+@media (max-width:767px){
+  .other-lead{font-size:15px;text-align:left}
+  .other-list{grid-template-columns:1fr;gap:28px;margin-top:32px}
+  .other .ng{font-size:17px}
+  .other-list img{width:62%}
+}
 </style>
 </head>
 <body>
@@ -538,7 +561,6 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
       <a href="#p1" class="c1"><b>01</b>ひとりで<br>おでかけする日に</a>
       <a href="#p2" class="c2"><b>02</b>2台目を<br>迷っている家族に</a>
       <a href="#p3" class="c3"><b>03</b>長く<br>使いたい家族に</a>
-      <a href="#p4" class="c4"><b>04</b>祖父母さまからの<br>ギフトに</a>
     </nav>
   </div>
 </section>
@@ -590,14 +612,6 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   </div>
 </section>
 
-<section class="person p-gift gift band" id="p4">
-  <div class="inner">
-    <span class="tag">祖父母さまからのギフトに</span>
-    <h3>お孫さんとの<br class="sp">おでかけを、贈る。</h3>
-    <p>お孫さんといっしょに公園へ、お散歩へ。モノだけでなく、いっしょに過ごす時間ごと贈れるギフトです。</p>
-  </div>
-</section>
-
 <!-- 機能 -->
 <section class="feat band">
   <div class="inner">
@@ -641,6 +655,43 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
       </ul>
     </div>
     <img src="img/6.jpg" alt="芝生の上に並んだ4色のワゴンストローラー">
+  </div>
+</section>
+
+<!-- こんな人には、こちら -->
+<section class="other band">
+  <div class="inner">
+    <h2><span>OTHER CHOICES</span>こんな人には、<br class="sp">こちらがおすすめ。</h2>
+    <p class="other-lead">ワゴンストローラーは、ゆったり大きめの1台です。<br class="pc">こんな使い方が多いなら、ほかのカトージのベビーカーが合うかもしれません。</p>
+    <ul class="other-list">
+      <li>
+        <p class="ng"><small>こんな人には向かない</small>生まれてすぐから<br>使いたい</p>
+        <a href="https://item.rakuten.co.jp/babuuu/bgoods-00394/" target="_blank" rel="noopener">
+          <img src="img/other-aireskip.jpg" alt="Joie エアスキップ ライト" loading="lazy">
+          <b>Joie エアスキップ ライト</b>
+          <span>生後1か月から3歳頃まで使える、軽くてコンパクトなベビーカー。</span>
+          <em>商品を見る</em>
+        </a>
+      </li>
+      <li>
+        <p class="ng"><small>こんな人には向かない</small>電車やバスで、<br>さっとたたみたい</p>
+        <a href="https://item.rakuten.co.jp/babuuu/bgoods-00432/" target="_blank" rel="noopener">
+          <img src="img/other-tatamy.jpg" alt="カトージ コンパクトベビーカー タタミー" loading="lazy">
+          <b>タタミー</b>
+          <span>重さ5.7kg。たたむと自立する、コンパクトなベビーカー。</span>
+          <em>商品を見る</em>
+        </a>
+      </li>
+      <li>
+        <p class="ng"><small>こんな人には向かない</small>旅行や帰省に<br>持っていきたい</p>
+        <a href="https://item.rakuten.co.jp/babuuu/bgoods-00330/" target="_blank" rel="noopener">
+          <img src="img/other-toberu.jpg" alt="カトージ ベビーカー トベル" loading="lazy">
+          <b>トベル</b>
+          <span>キャビンサイズまで小さくたためる。バックパック付き。</span>
+          <em>商品を見る</em>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -724,9 +775,11 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
     ['.worry h2,.for-head h2,.for-head p,.feat h2,.colors h2,.colors p,.spec h2',0],
     ['.voice',120],
     ['.answer h2,.answer p',150],
-    ['.person .photo,.person .long-pics,.person .inner>div:not(.photo):not(.long-pics),.gift .inner>*',120],
+    ['.person .photo,.person .long-pics,.person .inner>div:not(.photo):not(.long-pics)',120],
     ['.f,.f-plain>div',120],
     ['.colors img,.spec dl,.qa',0],
+    ['.other h2,.other-lead',0],
+    ['.other-list li',140],
     ['.cta .pre,.cta .price,.cta a,.cta .note',140]
   ];
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
