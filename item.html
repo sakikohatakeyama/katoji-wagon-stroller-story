@@ -551,6 +551,14 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 .vs-row span,.vs-before span,.vs-after span{background:none;border:0;border-radius:0;padding:0;font-size:20px;color:inherit}
 .vs-row em{font-size:13px;letter-spacing:.08em;opacity:.85}
 @media (max-width:767px){.vs-row span,.vs-before span,.vs-after span{font-size:17px}}
+.vs{gap:0}
+.vs-row,.vs-before,.vs-after{background:none;border-radius:0;box-shadow:none;padding:16px 8px}
+.vs-before{border-top:2px solid #b9b0a6;color:var(--sub)}
+.vs-after{border-top:3px solid var(--orange-deep);border-bottom:3px solid var(--orange-deep);color:var(--ink)}
+.vs-after em{color:var(--orange-deep);opacity:1}
+.vs-after b{color:var(--orange-deep);font-size:38px}
+.vs-before b{color:var(--sub)}
+@media (max-width:767px){.vs-after b{font-size:32px}}
 </style>
 </head>
 <body>
