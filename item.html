@@ -522,6 +522,23 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   .k3,.k5{display:none}
 }
 @media (prefers-reduced-motion:reduce){.cl,.cta-track{animation:none}}
+/* 2台目の比較 */
+.vs{display:flex;flex-direction:column;gap:14px;margin:28px auto 0;max-width:520px}
+.vs-row{border:var(--line);border-radius:16px;padding:12px 16px 14px;text-align:center}
+.vs-row em{display:block;font-style:normal;font-weight:700;font-size:14px;margin-bottom:6px}
+.vs-row>div{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.vs-row span{font-weight:700;font-size:17px;background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:4px 14px}
+.vs-row i{font-style:normal;font-weight:700;font-size:20px}
+.vs-row b{font-family:var(--en);font-weight:800;font-size:30px;line-height:1}
+.vs-before{background:#f3efe9;color:var(--sub)}
+.vs-before span{border-color:#9b938b;color:var(--sub)}
+.vs-after{background:var(--orange);color:var(--white);box-shadow:var(--pop)}
+.vs-after span{color:var(--ink)}
+.vs-after b{color:var(--white)}
+@media (max-width:767px){
+  .vs-row span{font-size:15px;padding:3px 10px}
+  .vs-row b{font-size:26px}
+}
 </style>
 </head>
 <body>
@@ -619,8 +636,11 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
     <div>
       <span class="tag">2台目を迷っている家族に</span>
       <h3>ベビーカーと、<br>ペットカート。<br>買うのは1台。</h3>
-      <p>別々にそろえると、お金も置き場所も2台分。ワゴンストローラーなら1台で済むので、玄関も車の荷室もすっきりします。</p>
-      <div class="twotone"><span><s>ベビーカー ＋ ペットカート</s></span><i>→</i><b>ワゴンストローラー 1台</b></div>
+      <p>子ども用のベビーカーと、<br class="sp">ワンちゃん用のペットカート。<br>別々に買うと、お金も置き場所も2台分。<br>ワゴンストローラーなら、<br class="sp">1台で両方に使えます。</p>
+      <div class="vs">
+        <div class="vs-row vs-before"><em>別々に買うと</em><div><span>ベビーカー</span><i>＋</i><span>ペットカート</span><i>＝</i><b>2台</b></div></div>
+        <div class="vs-row vs-after"><em>これなら</em><div><span>ワゴンストローラー</span><i>＝</i><b>1台</b></div></div>
+      </div>
     </div>
   </div>
 </section>
