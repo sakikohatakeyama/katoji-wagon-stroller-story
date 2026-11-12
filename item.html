@@ -561,98 +561,62 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 @media (max-width:767px){.vs-after b{font-size:32px}}
 
 
-/* ---------- FV v3（ワゴンが走ってくる） ---------- */
-.fv3{position:relative;overflow:hidden;height:clamp(660px,92vh,880px);background-color:var(--sky);background-image:radial-gradient(rgba(255,255,255,.6) 2.2px,transparent 2.6px);background-size:26px 26px;display:flex;flex-direction:column;align-items:center}
-.fv3-new{position:relative;z-index:2;margin:clamp(36px,6vh,64px) 0 0;font-family:var(--en);font-weight:800;font-size:15px;letter-spacing:.28em;color:var(--sky-deep)}
-.fv3-sky i{position:absolute;height:44px;border-radius:44px;background:#fff;border:3px solid var(--ink);animation:fv3Cloud 40s linear infinite}
-.fv3-sky i::before{content:"";position:absolute;left:22%;bottom:60%;width:46%;aspect-ratio:1;border-radius:50%;background:#fff;border:3px solid var(--ink);border-bottom-color:transparent;border-right-color:transparent;transform:rotate(45deg)}
-.fv3-sky .c1{width:150px;left:8%;top:16%}
-.fv3-sky .c2{width:110px;right:12%;top:10%;animation-duration:52s}
-.fv3-sky .c3{width:90px;left:30%;top:9%;animation-duration:46s}
-@keyframes fv3Cloud{from{translate:0 0}50%{translate:-40px 0}to{translate:0 0}}
-.fv3-stage{position:absolute;left:0;right:0;bottom:calc(16% + 10px);display:flex;justify-content:center;z-index:2}
-.fv3-wagon{position:relative;width:min(980px,76vw)}
-.fv3-body{position:relative;z-index:2;background:var(--orange);border:5px solid var(--ink);border-radius:40px 40px 56px 56px;padding:46px 40px 50px;text-align:center}
-.fv3-body::before{content:"";position:absolute;left:28px;right:28px;top:20px;border-top:4px dashed rgba(43,39,36,.35)}
-.fv3 h1{margin:0;font-family:var(--jp);font-weight:700;font-size:clamp(44px,4.8vw,72px);line-height:1.35;letter-spacing:.04em;color:var(--ink)}
-.fv3 h1 em{font-style:normal;color:#fff}
-.fv3-name{margin:18px auto 0;display:inline-block;font-weight:700;font-size:17px;letter-spacing:.1em;border-top:2px solid var(--ink);padding-top:10px}
-.fv3-riders{position:absolute;left:8%;right:20%;bottom:calc(100% - 46px);display:flex;justify-content:space-between;align-items:flex-end;z-index:1}
-.fv3-riders figure{margin:0;width:30%;aspect-ratio:1/1.05;border:5px solid var(--ink);border-bottom:0;border-radius:999px 999px 0 0;overflow:hidden;background:#fff}
-.fv3-riders .r2{width:34%}
-.fv3-riders img{width:100%;height:100%;object-fit:cover;display:block}
-.fv3-handle{position:absolute;right:-110px;bottom:42%;width:160px;height:170px;z-index:1}
-.fv3-wheel{position:absolute;bottom:-62px;width:120px;height:120px;z-index:3}
-.fv3-wheel svg{width:100%;height:100%;display:block}
-.fv3-wheel.w1{left:12%}
-.fv3-wheel.w2{right:12%}
-.fv3-road{position:absolute;left:0;right:0;bottom:0;height:16%;background:var(--beige);border-top:5px solid var(--ink);overflow:hidden}
-.fv3-road i{position:absolute;left:0;top:50%;width:200%;border-top:6px dashed #fff;animation:fv3Road 6s linear infinite}
-@keyframes fv3Road{to{translate:-50% 0}}
-.fv3 h1 .ch{display:inline-block;opacity:0;transform:translateY(.45em);animation:chIn .55s cubic-bezier(.2,.8,.3,1.2) forwards}
-.js .fv3-wagon{animation:fv3In 1.5s cubic-bezier(.2,.7,.25,1) both}
-.js .fv3-wheel svg{animation:fv3Spin 1.5s cubic-bezier(.2,.7,.25,1) both}
-@keyframes fv3In{0%{translate:-120vw 0}82%{translate:12px 0}100%{translate:0 0}}
-@keyframes fv3Spin{from{rotate:-720deg}to{rotate:0deg}}
-.js .fv3-riders figure{translate:0 70%;transition:translate .5s cubic-bezier(.2,.9,.3,1.4)}
-.js.fv-done .fv3-riders figure{translate:0 0}
-.js.fv-done .fv3-riders .r1{transition-delay:1.5s}
-.js.fv-done .fv3-riders .r2{transition-delay:1.65s}
-.js.fv-done .fv3-riders .r3{transition-delay:1.8s}
-.js .fv3-new,.js .fv3-name{opacity:0;transition:opacity .6s ease}
-.js.fv-done .fv3-new,.js.fv-done .fv3-name{opacity:1}
-.fv2-sub{background:var(--paper);text-align:center;padding-top:44px;padding-bottom:44px}
-.fv2-sub .fv-lead{margin:0 auto;font-size:20px;line-height:1.9}
-.fv2-age{margin:10px 0 0;font-size:15px;color:var(--sub)}
+
+/* ---------- FV v4（写真が並んで走ってくる） ---------- */
+.fv4{position:relative;overflow:hidden;background-color:var(--sky);background-image:radial-gradient(rgba(255,255,255,.6) 2.2px,transparent 2.6px);background-size:26px 26px}
+.fv4-head{text-align:center;padding:clamp(44px,7vh,76px) 16px 0}
+.fv4-new{margin:0 0 14px;font-family:var(--en);font-weight:800;font-size:15px;letter-spacing:.28em;color:var(--sky-deep)}
+.fv4 h1{margin:0;font-family:var(--jp);font-weight:700;font-size:clamp(46px,5.2vw,78px);line-height:1.3;letter-spacing:.04em;color:var(--ink)}
+.fv4 h1 em{font-style:normal;color:var(--orange-deep);background:linear-gradient(transparent 64%,var(--sun) 64% 94%,transparent 94%)}
+.fv4-row{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,1.6vw,24px);padding:clamp(36px,5vh,56px) 16px 0;max-width:1240px;margin:0 auto}
+.fv4-row figure{margin:0;border:5px solid var(--ink);border-bottom:0;border-radius:28px 28px 0 0;overflow:hidden;background:#fff}
+.fv4-row img{width:100%;height:100%;object-fit:cover;display:block}
+.fv4-row .q1{width:20%;aspect-ratio:1/1.05}
+.fv4-row .q2{width:34%;aspect-ratio:1/1.02}
+.fv4-row .q3{width:24%;aspect-ratio:1/1.1}
+.fv4-row .q4{width:20%;aspect-ratio:1/1.15}
+.fv4-row .q3 img{object-position:60% 50%}
+.fv4-row .q4 img{object-position:30% 50%}
+.fv4-ground{background:var(--orange);border-top:5px solid var(--ink);text-align:center;padding:16px 16px 18px}
+.fv4-name{margin:0;font-weight:700;font-size:18px;letter-spacing:.12em;color:#fff}
+.fv4 h1 .ch{display:inline-block;opacity:0;transform:translateY(.45em);animation:chIn .55s cubic-bezier(.2,.8,.3,1.2) forwards}
+.js .fv4-row figure{animation:fv4In 1.1s cubic-bezier(.2,.75,.25,1) both}
+.js .fv4-row .q4{animation-delay:.05s}
+.js .fv4-row .q3{animation-delay:.2s}
+.js .fv4-row .q2{animation-delay:.35s}
+.js .fv4-row .q1{animation-delay:.5s}
+@keyframes fv4In{0%{translate:-110vw 0}80%{translate:10px 0}100%{translate:0 0}}
+.js .fv4-new,.js .fv4-name{opacity:0;transition:opacity .6s ease}
+.js.fv-done .fv4-new,.js.fv-done .fv4-name{opacity:1}
 @media (max-width:767px){
-  .fv3{height:700px}
-  .fv3-new{font-size:12px;letter-spacing:.2em;margin-top:28px}
-  .fv3-stage{bottom:calc(13% + 6px)}
-  .fv3-road{height:13%}
-  .fv3-wagon{width:calc(100% - 64px);margin-right:24px}
-  .fv3-body{border-radius:28px 28px 40px 40px;padding:34px 14px 42px;border-width:4px}
-  .fv3-body::before{left:18px;right:18px;top:14px;border-top-width:3px}
-  .fv3 h1{font-size:34px;line-height:1.4}
-  .fv3-name{font-size:13px;letter-spacing:.04em;margin-top:12px}
-  .fv3-riders{left:6%;right:12%;bottom:calc(100% - 36px)}
-  .fv3-riders{left:4%;right:6%}
-  .fv3-riders figure{border-width:4px;width:31%;aspect-ratio:1/1.3}
-  .fv3-riders .r2{width:35%}
-  .fv3-handle{right:-58px;width:90px;height:96px;bottom:46%}
-  .fv3-wheel{width:84px;height:84px;bottom:-44px}
-  .fv3-wheel.w1{left:9%}.fv3-wheel.w2{right:9%}
-  .fv3-sky .c1{width:96px;height:34px;left:-20px;top:9%}
-  .fv3-sky .c2{width:80px;height:30px;right:-14px;top:15%}
-  .fv3-sky .c3{display:none}
-  .fv2-sub{padding-top:32px;padding-bottom:32px}
-  .fv2-sub .fv-lead{font-size:17px}
+  .fv4-head{padding-top:36px}
+  .fv4-new{font-size:12px;letter-spacing:.2em;margin-bottom:10px}
+  .fv4 h1{font-size:40px;line-height:1.35}
+  .fv4-row{gap:8px;padding:30px 12px 0;flex-wrap:wrap;align-items:flex-end}
+  .fv4-row figure{border-width:4px;border-radius:20px 20px 0 0}
+  .fv4-row .q1{width:calc(30% - 8px);aspect-ratio:1/1.2}
+  .fv4-row .q2{width:calc(46% - 8px);aspect-ratio:1/1.12}
+  .fv4-row .q3{width:24%;aspect-ratio:1/1.5}
+  .fv4-row .q4{display:none}
+  .fv4-name{font-size:15px;letter-spacing:.06em}
 }
-@media (prefers-reduced-motion:reduce){.fv3-road i,.fv3-sky i{animation:none}}
 </style>
 </head>
 <body>
 
 <!-- FV -->
-<section class="fv3">
-  <div class="fv3-sky" aria-hidden="true"><i class="c1"></i><i class="c2"></i><i class="c3"></i></div>
-  <p class="fv3-new">NEW WAGON STROLLER</p>
-  <div class="fv3-stage">
-    <div class="fv3-wagon">
-      <div class="fv3-riders" aria-hidden="true">
-        <figure class="r1"><img src="img/1c.jpg" alt=""></figure>
-        <figure class="r2"><img src="img/5.jpg" alt=""></figure>
-        <figure class="r3"><img src="img/2c.jpg" alt=""></figure>
-      </div>
-      <svg class="fv3-handle" viewBox="0 0 160 170" aria-hidden="true"><path d="M8 160 L96 40" stroke="#2b2724" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M84 30 L150 22" stroke="#2b2724" stroke-width="22" stroke-linecap="round"/><path d="M84 30 L150 22" stroke="#f6d36b" stroke-width="10" stroke-linecap="round"/></svg>
-      <div class="fv3-body">
-        <h1>この子も、<br class="sp">あの子も、<br><em>いっしょに</em><br class="sp">おでかけ。</h1>
-        <p class="fv3-name">KATOJI ワゴンストローラー</p>
-      </div>
-      <i class="fv3-wheel w1" aria-hidden="true"><svg viewBox="-50 -50 100 100"><circle r="46" fill="#2b2724"/><circle r="30" fill="#cfe7f5" stroke="#2b2724" stroke-width="4"/><path d="M0-30V30M-30 0H30M-21-21L21 21M21-21L-21 21" stroke="#2b2724" stroke-width="4"/><circle r="8" fill="#f6d36b" stroke="#2b2724" stroke-width="4"/></svg></i>
-      <i class="fv3-wheel w2" aria-hidden="true"><svg viewBox="-50 -50 100 100"><circle r="46" fill="#2b2724"/><circle r="30" fill="#cfe7f5" stroke="#2b2724" stroke-width="4"/><path d="M0-30V30M-30 0H30M-21-21L21 21M21-21L-21 21" stroke="#2b2724" stroke-width="4"/><circle r="8" fill="#f6d36b" stroke="#2b2724" stroke-width="4"/></svg></i>
-    </div>
+<section class="fv4">
+  <div class="fv4-head">
+    <p class="fv4-new">NEW WAGON STROLLER</p>
+    <h1>この子も、<br class="sp">あの子も、<br><em>いっしょに</em><br class="sp">おでかけ。</h1>
   </div>
-  <div class="fv3-road" aria-hidden="true"><i></i></div>
+  <div class="fv4-row">
+    <figure class="q1"><img src="img/1c.jpg" alt="ワゴンストローラーに座る赤ちゃん"></figure>
+    <figure class="q2"><img src="img/5.jpg" alt="ワゴンストローラーに乗った男の子とワンちゃん、笑顔の家族"></figure>
+    <figure class="q3"><img src="img/2c.jpg" alt="公園でワゴンストローラーを押すようす"></figure>
+    <figure class="q4"><img src="img/7.jpg" alt="たたんだワゴンストローラーを車に積むようす"></figure>
+  </div>
+  <div class="fv4-ground"><p class="fv4-name">KATOJI ワゴンストローラー</p></div>
 </section>
 <div class="fv2-sub band">
   <p class="fv-lead">子どもも、ワンちゃんも、荷物も。<br>ひとりの日も、<br class="sp">ちゃんと出かけられる1台です。</p>
@@ -894,7 +858,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   if(reduce||!('IntersectionObserver' in window))return;
   root.classList.add('js');
   // タイトルを1文字ずつ
-    var h1=document.querySelector('.fv3 h1'),i=0,step=60,start=1500;
+    var h1=document.querySelector('.fv4 h1'),i=0,step=60,start=300;
   function wrap(node){
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType===3){
@@ -912,7 +876,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   h1.setAttribute('aria-label',h1.textContent);
   wrap(h1);
   var total=start+i*step+300;
-  var after=['.fv3-new','.fv3-name'];
+  var after=['.fv4-new','.fv4-name'];
   after.forEach(function(sel,k){var el=document.querySelector(sel);if(el)el.style.transitionDelay=(total+k*160)+'ms';});
   
   requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('fv-done');});});
