@@ -546,6 +546,11 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 .f-plain div:nth-child(1) b{background:linear-gradient(transparent 58%,var(--mint) 58%)}
 .vs-after{box-shadow:none}
 @media (max-width:767px){.f-plain div+div{border-top:3px solid var(--ink);margin-top:20px}}
+/* 比較もボタンに見えないように */
+.vs-row{border:0;border-radius:6px;padding:14px 16px 16px}
+.vs-row span,.vs-before span,.vs-after span{background:none;border:0;border-radius:0;padding:0;font-size:20px;color:inherit}
+.vs-row em{font-size:13px;letter-spacing:.08em;opacity:.85}
+@media (max-width:767px){.vs-row span,.vs-before span,.vs-after span{font-size:17px}}
 </style>
 </head>
 <body>
