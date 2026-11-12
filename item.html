@@ -492,6 +492,36 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   .other .ng{font-size:17px}
   .other-list img{width:76%}
 }
+/* カラー：斜めの切り口をやめる */
+.colors{clip-path:none;padding-block:110px}
+@media (max-width:767px){.colors{padding-block:80px}}
+/* 最後：青空と雲、写真が流れる */
+.cta{background:linear-gradient(180deg,#4fb3ee 0%,#8fd0f7 55%,#d4eefc 100%)}
+.cta::before{content:none}
+.clouds{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.cl{position:absolute;display:block;background:#fff;border-radius:999px;height:var(--h);width:calc(var(--h)*3);opacity:.95;animation:drift var(--t) linear infinite}
+.cl::before,.cl::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cl::before{width:calc(var(--h)*1.25);height:calc(var(--h)*1.25);left:calc(var(--h)*.45);bottom:calc(var(--h)*.35)}
+.cl::after{width:calc(var(--h)*.95);height:calc(var(--h)*.95);left:calc(var(--h)*1.45);bottom:calc(var(--h)*.45)}
+.k1{--h:60px;--t:70s;top:8%;left:6%}
+.k2{--h:42px;--t:95s;top:22%;left:68%;animation-delay:-30s}
+.k3{--h:74px;--t:110s;top:46%;left:-4%;animation-delay:-60s;opacity:.85}
+.k4{--h:36px;--t:80s;top:5%;left:42%;animation-delay:-15s}
+.k5{--h:52px;--t:100s;top:58%;left:80%;animation-delay:-45s;opacity:.85}
+@keyframes drift{from{transform:translateX(0)}50%{transform:translateX(60px)}to{transform:translateX(0)}}
+.cta p.pre{color:var(--ink)}
+.cta .note{color:var(--ink)}
+.cta-photos{margin:48px calc(-1*max(16px,env(safe-area-inset-left,0px))) 8px;overflow:hidden}
+.cta-track{display:flex;gap:20px;width:max-content;animation:slide 60s linear infinite;padding:6px 0 16px}
+.cta-track img{width:300px;aspect-ratio:4/3;object-fit:cover;border:var(--line);border-radius:18px;box-shadow:var(--pop);background:#fff}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 10px))}}
+@media (max-width:767px){
+  .cta-photos{margin-top:36px}
+  .cta-track{gap:14px;animation-duration:45s}
+  .cta-track img{width:200px;border-radius:14px;box-shadow:5px 5px 0 var(--ink)}
+  .k3,.k5{display:none}
+}
+@media (prefers-reduced-motion:reduce){.cl,.cta-track{animation:none}}
 </style>
 </head>
 <body>
@@ -735,10 +765,13 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 
 <!-- CTA -->
 <section class="cta band">
+  <div class="clouds" aria-hidden="true"><i class="cl k1"></i><i class="cl k2"></i><i class="cl k3"></i><i class="cl k4"></i><i class="cl k5"></i></div>
   <div class="inner">
     <p class="big-en" aria-hidden="true">LET&rsquo;S GO!</p>
     <p class="pre">ひとりの日も、<br class="sp">みんなの日も。<br>いっしょに、<br class="sp">おでかけしよう。</p>
-    <p class="price"><b>50,000</b>円</p>
+  </div>
+  <div class="cta-photos" aria-hidden="true"><div class="cta-track"><img src="img/5.jpg" alt="" loading="lazy"><img src="img/8.jpg" alt="" loading="lazy"><img src="img/3c.jpg" alt="" loading="lazy"><img src="img/6.jpg" alt="" loading="lazy"><img src="img/7.jpg" alt="" loading="lazy"><img src="img/1c.jpg" alt="" loading="lazy"><img src="img/2c.jpg" alt="" loading="lazy"><img src="img/4c.jpg" alt="" loading="lazy"><img src="img/5.jpg" alt="" loading="lazy"><img src="img/8.jpg" alt="" loading="lazy"><img src="img/3c.jpg" alt="" loading="lazy"><img src="img/6.jpg" alt="" loading="lazy"><img src="img/7.jpg" alt="" loading="lazy"><img src="img/1c.jpg" alt="" loading="lazy"><img src="img/2c.jpg" alt="" loading="lazy"><img src="img/4c.jpg" alt="" loading="lazy"></div></div>
+  <div class="inner">
     <a href="https://www.rakuten.co.jp/babuuu/">babuuu.で見る</a>
     <p class="note">まもなく発売</p>
   </div>
@@ -790,7 +823,7 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
     ['.colors img,.spec dl,.qa',0],
     ['.other h2,.other-lead',0],
     ['.other-list li',140],
-    ['.cta .pre,.cta .price,.cta a,.cta .note',140]
+    ['.cta .pre,.cta-photos,.cta a,.cta .note',140]
   ];
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
   groups.forEach(function(g){
