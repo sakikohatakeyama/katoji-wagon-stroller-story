@@ -631,6 +631,19 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
   .fv5-name{font-size:14px;letter-spacing:.08em;bottom:14px}
 }
 @media (prefers-reduced-motion:reduce){.fv5-sun::before,.fv5-clouds i,.fv5-pics figure{animation:none}}
+
+/* ---------- 商品ページ用：動きなし ---------- */
+*,*::before,*::after{animation:none!important;transition:none!important}
+.cta-photos{margin:48px auto 8px;max-width:1080px;overflow:visible}
+.cta-track{width:auto;flex-wrap:wrap;justify-content:center;gap:16px;padding:0}
+.cta-track img{width:calc(25% - 12px);box-shadow:none}
+.cta-track img:nth-child(n+9){display:none}
+@media (max-width:767px){
+  .cta-photos{margin:36px 0 8px}
+  .cta-track{gap:10px}
+  .cta-track img{width:calc(50% - 5px)}
+  .cta-track img:nth-child(n+5){display:none}
+}
 </style>
 </head>
 <body>
@@ -886,62 +899,5 @@ html::after{content:"";position:fixed;inset:0;border:10px solid var(--orange);po
 
 <footer class="foot band"><b>babuuu.</b>　スタイリッシュな子育てライフを。</footer>
 
-<script>
-(function(){
-  var io0=[];
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var root=document.documentElement;
-  if(reduce||!('IntersectionObserver' in window))return;
-  root.classList.add('js');
-  // タイトルを1文字ずつ
-    var h1=document.querySelector('.fv5 h1'),i=0,step=60,start=300;
-  function wrap(node){
-    Array.prototype.slice.call(node.childNodes).forEach(function(n){
-      if(n.nodeType===3){
-        var f=document.createDocumentFragment();
-        Array.from(n.textContent).forEach(function(c){
-          var sp=document.createElement('span');sp.className='ch';sp.textContent=c;
-          sp.style.animationDelay=(start+i*step)+'ms';i++;f.appendChild(sp);
-        });
-        n.parentNode.replaceChild(f,n);
-      }else if(n.nodeName==='EM'){
-        n.classList.add('js-box');n.style.animationDelay=(start+i*step-60)+'ms';wrap(n);
-      }
-    });
-  }
-  h1.setAttribute('aria-label',h1.textContent);
-  wrap(h1);
-  var total=start+i*step+300;
-  var after=['.fv5-new','.fv5-name'];
-  after.forEach(function(sel,k){var el=document.querySelector(sel);if(el)el.style.transitionDelay=(total+k*160)+'ms';});
-  
-  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('fv-done');});});
-  // スクロールで出てくる
-  document.querySelectorAll('h2 span,.big-en').forEach(function(el){el.classList.add('rv','rx');io0.push(el);});
-  var groups=[
-    ['.worry h2,.for-head h2,.for-head p,.feat h2,.colors h2,.colors p,.spec h2',0],
-    ['.voice',120],
-    ['.answer h2,.answer p',150],
-    ['.person .photo,.person .long-pics,.person .inner>div:not(.photo):not(.long-pics)',120],
-    ['.f,.f-plain>div',120],
-    ['.colors img,.spec dl,.qa',0],
-    ['.other h2,.other-lead',0],
-    ['.other-list li',140],
-    ['.cta .pre,.cta-photos,.cta a,.cta .note',140]
-  ];
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
-  groups.forEach(function(g){
-    var els=document.querySelectorAll(g[0]),prev=null,n=0;
-    els.forEach(function(el){
-      if(el.parentNode!==prev){prev=el.parentNode;n=0;}
-      el.classList.add('rv');el.style.transitionDelay=(n*g[1])+'ms';n++;io.observe(el);
-    });
-  });
-  io0.forEach(function(el){io.observe(el);});
-  document.querySelectorAll('.chips a,.swatches li,.f-num,.cta .price b').forEach(function(el,k){
-    el.classList.add('rv','pop');el.style.transitionDelay=((k%4)*110)+'ms';io.observe(el);
-  });
-})();
-</script>
 </body>
 </html>
